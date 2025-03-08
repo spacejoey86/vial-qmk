@@ -48,18 +48,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_DELETE, QK_CAPS_WORD_TOGGLE, LT(1, KC_ENTER),                       LT(2, KC_SPACE), MO(3), KC_BACKSPACE
                       ),
 
-    [1] = LAYOUT_base(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSFT(KC_9),      LSFT(KC_0), KC_7, KC_8, KC_9, KC_MINUS,
+    [1] = LAYOUT_base(KC_GRAVE, KC_TRNS, KC_TRNS, KC_TRNS, LSFT(KC_9),      LSFT(KC_0), KC_7, KC_8, KC_9, KC_MINUS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT_BRACKET,     KC_RIGHT_BRACKET, KC_4, KC_5, KC_6, KC_EQUAL,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_NONUS_HASH, KC_SLASH,  KC_0, KC_1, KC_2, KC_3, KC_TRNS,
+                      KC_NONUS_BACKSLASH, KC_TRNS, KC_TRNS, KC_NONUS_HASH, KC_SLASH,  KC_0, KC_1, KC_2, KC_3, KC_TRNS,
                                                KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS),
 
-    [2] = LAYOUT_base(KC_ESCAPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TAB,        KC_TRNS, KC_HOME, KC_UP, KC_PAGE_UP, KC_TRNS,
+    [2] = LAYOUT_base(KC_ESCAPE, KC_TRNS, KC_TRNS, LSFT(KC_TAB), KC_TAB,        KC_TRNS, KC_HOME, KC_UP, KC_PAGE_UP, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_END, KC_TRNS, KC_PAGE_DOWN, KC_TRNS,
                                         KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS),
 
     [3] = LAYOUT_base(LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5),     LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), KC_TRNS, KC_TRNS,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_QUOTE,
+                      LSFT(KC_QUOTE), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_QUOTE,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                         KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS)
 };
