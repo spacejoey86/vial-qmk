@@ -17,6 +17,18 @@
       K,     J, L,   H, SCLN,     THM5,\
       I,     U, O,   Y, P,        THM4)
 
+enum caps_states {
+  OFF = 0,
+  ON_LOWER,
+  ON_UPPER,
+};
+
+static enum caps_states cApSsTaTe = OFF;
+
+enum my_keycodes {
+  SPONGE_CAPS = SAFE_RANGE,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
@@ -56,10 +68,55 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] = LAYOUT_base(KC_ESCAPE, KC_TRNS, KC_TRNS, LSFT(KC_TAB), KC_TAB,        KC_TRNS, KC_HOME, KC_UP, KC_PAGE_UP, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_END, KC_TRNS, KC_PAGE_DOWN, KC_TRNS,
-                                        KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS),
+                                        KC_TRNS, SPONGE_CAPS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS),
 
     [3] = LAYOUT_base(LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5),     LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), KC_TRNS, KC_TRNS,
                       LSFT(KC_QUOTE), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_QUOTE,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                         KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS)
 };
+
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    switch (cApSsTaTe) {
+      case ON_UPPER:
+        switch (keycode) {
+          case KC_A ... KC_Z:
+            add_weak_mods(MOD_BIT(KC_LSFT));
+            cApSsTaTe = ON_LOWER;
+            break;
+          default:
+            cApSsTaTe = ON_LOWER;
+            break;
+        }
+        break;
+      case ON_LOWER:
+        cApSsTaTe = ON_UPPER;
+        break;
+      case OFF:
+        break;
+    }
+  }
+
+  switch (keycode) {
+    case SPONGE_CAPS:
+      if (record->event.pressed) {
+        switch (cApSsTaTe) {
+          case ON_UPPER:
+            cApSsTaTe = OFF;
+            break;
+          case ON_LOWER:
+            cApSsTaTe = OFF;
+            break;
+          case OFF:
+            cApSsTaTe = ON_LOWER;
+            break;
+        }
+      }
+      return false;
+    default:
+      return true;
+  }
+}
