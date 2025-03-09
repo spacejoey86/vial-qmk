@@ -83,7 +83,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (cApSsTaTe) {
       case ON_UPPER:
         switch (keycode) {
-          case KC_A ... KC_Z:
+          case KC_A ... KC_Z: // Homerow mods aren't included in this..
+          case LGUI_T(KC_A):
+          case LALT_T(KC_S):
+          case LSFT_T(KC_D):
+          case LCTL_T(KC_F):
+          case RCTL_T(KC_J):
+          case RSFT_T(KC_K):
+          case LALT_T(KC_L):
             add_weak_mods(MOD_BIT(KC_LSFT));
             cApSsTaTe = ON_LOWER;
             break;
