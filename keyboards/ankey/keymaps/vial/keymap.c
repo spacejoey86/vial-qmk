@@ -45,21 +45,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_base(KC_Q, KC_W, KC_E, KC_R, KC_T,                                      KC_Y, KC_U, KC_I, KC_O, KC_P,
                       LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G,     KC_H, RCTL_T(KC_J), RSFT_T(KC_K), LALT_T(KC_L), RGUI_T(KC_SEMICOLON),
                       KC_Z, KC_X, KC_C, KC_V, KC_B,                                      KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH,
-                        KC_DELETE, QK_CAPS_WORD_TOGGLE, LT(1, KC_ENTER),                       LT(2, KC_SPACE), MO(3), KC_BACKSPACE
+                        LT(4, KC_DELETE), QK_CAPS_WORD_TOGGLE, LT(1, KC_ENTER),                       LT(2, KC_SPACE), MO(3), KC_BACKSPACE
                       ),
 
     [1] = LAYOUT_base(KC_GRAVE, KC_TRNS, KC_TRNS, KC_TRNS, LSFT(KC_9),      LSFT(KC_0), KC_7, KC_8, KC_9, KC_MINUS,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT_BRACKET,     KC_RIGHT_BRACKET, KC_4, KC_5, KC_6, KC_EQUAL,
+                      LSFT(KC_NONUS_HASH), KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT_BRACKET,     KC_RIGHT_BRACKET, KC_4, KC_5, KC_6, KC_EQUAL,
                       KC_NONUS_BACKSLASH, KC_TRNS, KC_TRNS, KC_NONUS_HASH, KC_SLASH,  KC_0, KC_1, KC_2, KC_3, KC_TRNS,
-                                               KC_TRNS, QK_BOOTLOADER, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS),
+                                               KC_TRNS, QK_BOOTLOADER, KC_TRNS,  KC_TRNS, KC_TRNS, TG(5)),
 
-    [2] = LAYOUT_base(KC_ESCAPE, KC_TRNS, KC_TRNS, LSFT(KC_TAB), KC_TAB,        KC_TRNS, KC_HOME, KC_UP, KC_PAGE_UP, KC_TRNS,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
+    [2] = LAYOUT_base(KC_ESCAPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TAB,        KC_TRNS, KC_HOME, KC_UP, KC_PAGE_UP, KC_TRNS,
+                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  LSFT(KC_TAB),         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS, KC_END, KC_TRNS, KC_PAGE_DOWN, KC_TRNS,
                                         KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS),
 
     [3] = LAYOUT_base(LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5),     LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), KC_TRNS, KC_TRNS,
                       LSFT(KC_QUOTE), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_QUOTE,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                        KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS)
+                                        KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS),
+
+
+    [4] = LAYOUT_base(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_F12, KC_F7, KC_F8, KC_F9, KC_TRNS,
+                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_F11, KC_F4, KC_F5, KC_F6, KC_TRNS,
+                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_F10, KC_F1, KC_F2, KC_F3, KC_TRNS,
+                                        KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS),
+
+    // Gaming layer
+    [5] = LAYOUT_base(KC_TAB, KC_Q, KC_W, KC_E, KC_R,     KC_Y, KC_U, KC_I, KC_O, KC_P,
+                     KC_LSFT, KC_A, KC_S, KC_D, KC_F,     KC_H, KC_J, KC_K, KC_L, KC_SEMICOLON,
+                        KC_1, KC_2, KC_3, KC_4, KC_5,     KC_6, KC_7, KC_8, KC_9, KC_0,
+                          KC_LCTL, KC_SPACE, KC_TRNS,     KC_ESCAPE, KC_ENTER, KC_TRNS)
 };
